@@ -1,16 +1,28 @@
-# React + Vite
+# Atlas PetShop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto de e-commerce hecho con React para el curso. Es una tienda de productos para perros y gatos.
 
-Currently, two official plugins are available:
+## Instalación y ejecución
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. Clonar el repositorio
+2. Entrar a la carpeta del proyecto
+3. Correr `npm install` para instalar las dependencias
+4. Correr `npm run dev` para levantar el proyecto
+5. Abrir la url que aparece en la terminal 
 
-## React Compiler
+## Variables de entorno
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+El proyecto usa Firebase para la base de datos. Las variables van en un archivo `.env` en la raíz del proyecto:
 
-## Expanding the ESLint configuration
+VITE_FIREBASE_API_KEY
+VITE_FIREBASE_AUTH_DOMAIN
+VITE_FIREBASE_PROJECT_ID
+VITE_FIREBASE_STORAGE_BUCKET
+VITE_FIREBASE_MESSAGING_SENDER_ID
+VITE_FIREBASE_APP_ID
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Estas se sacan de la consola de Firebase, en configuración del proyecto. Ya están incluidas en el .env de este repositorio para facilitar la corrección.
+
+## Flujo de la app
+
+El usuario entra al catálogo y puede filtrar por categoría (perros o gatos). Al hacer clic en un producto entra al detalle, donde elige cantidad y lo agrega al carrito. Desde el carrito puede ir a finalizar la compra, completa sus datos en el checkout, y al confirmar se genera una orden que se guarda en Firestore, mostrando el id de esa orden en pantalla.
